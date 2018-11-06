@@ -61,6 +61,12 @@ namespace Uwp.Settings
             service.Write(settingName, settingValue);
         }
 
+        public static void Clear(DataStore dataStore)
+        {
+            var task = Task.Run(async () => await ClearAsync(dataStore));
+            task.Wait();
+        }
+
         /// <summary>
         /// Clear all data from the given <see cref="DataStore"/>
         /// </summary>
