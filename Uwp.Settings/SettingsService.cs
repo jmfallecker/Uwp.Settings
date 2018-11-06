@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-namespace Uwp.Settings
+﻿namespace Uwp.Settings
 {
     internal sealed class SettingsService : ISettingsService
     {
