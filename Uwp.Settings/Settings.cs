@@ -18,6 +18,8 @@ namespace Uwp.Settings
         /// </summary>
         /// <typeparam name="T">The expected type of the setting.</typeparam>
         /// <param name="settingName">The name of the setting.</param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
         /// <returns>Value of the setting.</returns>
         public static T Read<T>(string settingName)
         {
@@ -29,7 +31,9 @@ namespace Uwp.Settings
         /// </summary>
         /// <typeparam name="T">The expected type of the setting.</typeparam>
         /// <param name="settingName">The name of the setting.</param>
-        /// <param name="dataStore">The type of the setting. e.g. Local, Roaming, etc.</param>
+        /// <param name="dataStore">The type of the setting. e.g. Local, Roaming, etc.</param> 
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
         /// <returns>Value of the setting.</returns>
         public static T Read<T>(string settingName, DataStore dataStore)
         {
@@ -61,6 +65,11 @@ namespace Uwp.Settings
             service.Write(settingName, settingValue);
         }
 
+        /// <summary>
+        /// Clear all data from the given <see cref="DataStore"/>
+        /// </summary>
+        /// <param name="dataStore"></param>
+        /// <returns></returns>
         public static void Clear(DataStore dataStore)
         {
             var task = Task.Run(async () => await ClearAsync(dataStore));
@@ -68,7 +77,7 @@ namespace Uwp.Settings
         }
 
         /// <summary>
-        /// Clear all data from the given <see cref="DataStore"/>
+        /// Clear all data from the given <see cref="DataStore"/> asyncronously
         /// </summary>
         /// <param name="dataStore"></param>
         /// <returns></returns>
