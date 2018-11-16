@@ -70,7 +70,7 @@ namespace Uwp.Settings
         /// <param name="settingValue">Will be default(<typeparamref name="T"/>) if no value found.</param>
         /// <param name="dataStore">The storage to read from. e.g. Local, Roaming, etc.</param> 
         /// <returns>Value of the setting.</returns>
-        public static bool TryRead<T>(string settingName, out T settingValue, DataStore dataStore)
+        public static bool TryRead<T>(string settingName, DataStore dataStore, out T settingValue)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace Uwp.Settings
         /// <returns></returns>
         public static T SafeRead<T>(string settingName, T fallbackValue, DataStore dataStore)
         {
-            if (TryRead(settingName, out T settingValue, dataStore))
+            if (TryRead(settingName, dataStore, out T settingValue))
             {
                 return settingValue;
             }
