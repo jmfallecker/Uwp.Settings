@@ -5,10 +5,12 @@ namespace Uwp.Settings
     internal sealed class SettingsService : ISettingsService
     {
         private readonly ISettingsAccess _settingsAccess;
+        internal readonly DataStore DataStore;
 
         internal SettingsService(DataStore dataStore)
         {
             _settingsAccess = new SettingsAccess(dataStore);
+            DataStore = dataStore;
         }
 
         public T Read<T>(string settingName)

@@ -12,14 +12,18 @@
 	    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This is a simple project to allow ease of access to Applications Settings in a Uwp application.</description>
-    <releaseNotes>Add TryRead, TryWrite and SafeRead functions to Settings.</releaseNotes>
-    <dependencies>
+    <releaseNotes>Added a property to read the current DataStore being used. Update tags for searchability.</releaseNotes>
+    <dependencies> 
 		<group targetFramework="uap10.0">
 			<dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="6.1.9"/>
 		</group>
 	</dependencies>
 	<copyright>Copyright 2018 © Joseph M. Fallecker</copyright>
-    <tags>uwp settings uwpsettings settingsuwp universal windows platform uwp-settings settings-uwp</tags>
+    <tags>
+		uwp settings uwpsettings settingsuwp universal windows platform uwp-settings 
+		settings-uwp win10 winrt windows10 uap uap10 win-10-universal win-universal-app 
+		win-universal windows-10 uwp10 uap10.0 UniversalWindowsPlatform
+	</tags>
   </metadata>
   <files>
 	<file src="readme.txt" target=""/>

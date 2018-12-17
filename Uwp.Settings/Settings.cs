@@ -4,6 +4,9 @@ using Windows.Storage;
 
 namespace Uwp.Settings
 {
+    /// <summary>
+    /// Default data store is DataStore.Local
+    /// </summary>
     public static class Settings
     {
         private static ISettingsService _settingsService;
@@ -14,7 +17,7 @@ namespace Uwp.Settings
         }
 
         /// <summary>
-        /// Read the setting from Local Settings.
+        /// Read the setting from the active DataStore.
         /// </summary>
         /// <typeparam name="T">The expected type of the setting.</typeparam>
         /// <param name="settingName">The name of the setting.</param>
@@ -226,9 +229,24 @@ namespace Uwp.Settings
             await ApplicationData.Current.ClearAsync(locality);
         }
 
+        /// <summary>
+        /// Sets the datastore currently in use.
+        /// </summary>
+        /// <param name="dataStore"></param>
         public static void SetDefaultDataStore(DataStore dataStore)
         {
             _settingsService = new SettingsService(dataStore);
+        }
+
+        /// <summary>
+        /// Returns the current DataStore in use.
+        /// </summary>
+        public static DataStore CurrentDataStore
+        {
+            get
+            {
+                return ((SettingsService)_settingsService).DataStore;
+            }
         }
     }
 }
